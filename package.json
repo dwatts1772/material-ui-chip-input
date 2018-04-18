@@ -3,33 +3,24 @@
   "version": "1.0.0-beta.4",
   "description": "A chip input field using Material-UI.",
   "main": "lib/ChipInput.js",
-  "files": [
-    "lib/**/*.js",
-    "README.md",
-    "LICENSE",
-    "demo.gif"
-  ],
+  "files": ["lib/**/*.js", "README.md", "LICENSE", "demo.gif"],
   "scripts": {
     "build": "babel src -d lib",
     "test": "standard && jest",
     "test:coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "test:unit": "jest",
     "lint": "standard",
-    "prepublish": "babel src -d lib",
+    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "storybook": "start-storybook -p 6006",
-    "deploy-storybook": "build-storybook -o storybook && gh-pages -d storybook && rm -r storybook"
+    "deploy-storybook":
+      "build-storybook -o storybook && gh-pages -d storybook && rm -r storybook"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TeamWertarbyte/material-ui-chip-input.git"
   },
-  "keywords": [
-    "react",
-    "material",
-    "chip",
-    "input",
-    "tags"
-  ],
+  "keywords": ["react", "material", "chip", "input", "tags"],
   "author": "Wertarbyte <kontakt@wertarbyte.com> (https://wertarbyte.com)",
   "license": "MIT",
   "bugs": {
@@ -68,20 +59,10 @@
     "prop-types": "^15.5.7"
   },
   "jest": {
-    "setupFiles": [
-      "./test/shim.js",
-      "./test/jestsetup.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/test"
-    ],
-    "roots": [
-      "src",
-      "test"
-    ]
+    "setupFiles": ["./test/shim.js", "./test/jestsetup.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "coveragePathIgnorePatterns": ["<rootDir>/test"],
+    "roots": ["src", "test"]
   },
   "standard": {
     "parser": "babel-eslint"
